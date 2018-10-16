@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bmi</string>
+    <string name="ok">確認</string>
+    <string name="your_bmi_is">你的BMI是</string>
+    <string name="clear">清除</string>
+    <string name="weight">體重</string>
+    <string name="height">身高</string>
+    <string name="caculate">計算</string>
+    <string name="help">協助</string>
+    <string name="bmi_info">BMI是體重除以身高平方</string>
+</resources>

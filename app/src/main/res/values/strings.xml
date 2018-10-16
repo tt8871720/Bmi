@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Bmi</string>
+    <string name="bmi_info">BMI is a person\'s weight in kilograms (kg) divided by his or her height in meters squared.</string>
+    <string name="ok">OK</string>
+    <string name="your_bmi_is">Your BMI is</string>
+    <string name="clear">Clear</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="caculate">CACULATE　ＢＭＩ</string>
+    <string name="help">Ｈｅｌｐ</string>
 </resources>
