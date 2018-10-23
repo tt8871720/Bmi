@@ -1,6 +1,7 @@
 package com.user.bmi;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,8 +19,45 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("MainActivity " , "onCreat");
         setContentView(R.layout.activity_main);
         findView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity " , "onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity " , "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("MainActivity " , "onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity " , "onPause");
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Log.d("MainActivity " , "onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MainActivity " , "onRestart");
     }
 
     private void findView() {
@@ -46,15 +84,18 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(h);
         float bmi = weight / (height * height);
         Log.d("MainActivity" ,  bmi + "");//畫面還不會顯示
-        Toast.makeText(this,getString(R.string.your_bmi_is) + bmi,Toast.LENGTH_LONG).show();//顯示也可選creat()
-        new AlertDialog.Builder(this).setMessage(getString(R.string.your_bmi_is) + bmi).setTitle("BMI").setPositiveButton(R.string.ok ,null).setNegativeButton(R.string.clear, new DialogInterface.OnClickListener(){
-            //按ok後,app重新一次
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                edweight.setText("");//按ok後,將重新設置數值
-                edheight.setText("");
-            }
-        }).show();
+        Intent intent = new Intent(this , ResultActivity.class);
+        intent.putExtra("result" , bmi);
+        startActivity(intent);
+// Toast.makeText(this,getString(R.string.your_bmi_is) + bmi,Toast.LENGTH_LONG).show();//顯示也可選creat()
+//        new AlertDialog.Builder(this).setMessage(getString(R.string.your_bmi_is) + bmi).setTitle("BMI").setPositiveButton(R.string.ok ,null).setNegativeButton(R.string.clear, new DialogInterface.OnClickListener(){
+//            //按ok後,app重新一次
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                edweight.setText("");//按ok後,將重新設置數值
+//                edheight.setText("");
+//            }
+//        }).show();
 
     }
 }
